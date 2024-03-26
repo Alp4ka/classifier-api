@@ -1,4 +1,4 @@
-module github.com/Alp4ka/classifier-aaS/pkg/api
+module github.com/Alp4ka/classifier-contracts/api
 
 go 1.22
 
