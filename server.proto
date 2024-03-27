@@ -30,7 +30,6 @@ message ProcessResponse {
   optional string response_data = 1;
   bool end = 2;
   bool request_required = 3;
-  bool response_required = 4;
 }
 
 service GWManagerService {
