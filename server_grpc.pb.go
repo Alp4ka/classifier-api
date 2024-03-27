@@ -4,7 +4,7 @@
 // - protoc             v5.26.0
 // source: server.proto
 
-package classifier_api
+package api
 
 import (
 	context "context"
