@@ -3,33 +3,40 @@ syntax = "proto3";
 package api;
 option go_package = ".;api";
 
+enum Action {
+  ACTION_UNSPECIFIED = 0;
+  ACTION_RESPOND = 1;
+  ACTION_LISTEN = 2;
+  ACTION_FINISH = 3;
+}
 
+// Acquire Session.
 message AcquireSessionRequest {
-  string agent = 1;
-  string gateway = 2;
+  string agent = 1 [json_name = "agent"];
+  string gateway = 2 [json_name = "gateway"];
 }
 
 message AcquireSessionResponse {
-  string session_id = 1;
+  string session_id = 1 [json_name = "sessionID"];
 }
 
+// Release Session.
 message ReleaseSessionRequest {
-  string session_id = 1;
+  string session_id = 1 [json_name = "sessionID"];
 }
 
 message ReleaseSessionResponse {
 }
 
+// Process request.
 message ProcessRequest {
-  optional string session_id = 1;
-  string request_data = 2;
-  string request_id = 3;
+  string session_id = 1 [json_name = "sessionID"];
+  string request_data = 2 [json_name = "requestData"];
 }
 
 message ProcessResponse {
-  optional string response_data = 1;
-  bool end = 2;
-  bool request_required = 3;
+  string response_data = 1 [json_name = "responseData"];
+  Action action = 2 [json_name = "action"];
 }
 
 service GWManagerService {
