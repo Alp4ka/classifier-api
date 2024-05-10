@@ -31,7 +31,8 @@ message ReleaseSessionResponse {
 // Process request.
 message ProcessRequest {
   string session_id = 1 [json_name = "sessionID"];
-  string request_data = 2 [json_name = "requestData"];
+  string request_id = 2 [json_name = "requestID"];
+  string request_data = 3 [json_name = "requestData"];
 }
 
 message ProcessResponse {
